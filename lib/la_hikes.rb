@@ -1,6 +1,12 @@
-require "la_hikes/version"
+require 'nokogiri'
+require 'open-uri'
+require 'pry'
 
-module LaHikes
-  class Error < StandardError; end
-  # Your code goes here...
-end
+
+require_relative './la_hikes/version'
+require_relative './la_hikes/cli'
+require_relative './la_hikes/hike'
+require_relative './la_hikes/scraper'
+require_relative './la_hikes/quote'
+
+
