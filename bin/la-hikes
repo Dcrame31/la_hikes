@@ -1,0 +1,5 @@
+#!/usr/bin/env ruby
+
+require_relative '../lib/la_hikes'
+
+LaHikes::CLI.new.call
