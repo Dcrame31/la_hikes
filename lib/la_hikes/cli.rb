@@ -22,7 +22,7 @@ class LaHikes::CLI
             puts "Please make a selection:"
             
         
-         input = gets.chomp
+         input = gets.strip
        
          if input == '1'
             puts ""
@@ -30,7 +30,7 @@ class LaHikes::CLI
             puts ""
             puts "Select a hike from menu:"
             num = gets.to_i
-            hike_selector(num)
+            hike_selector(num) if check_input(num)
             return_to_menu?
          elsif input == '2'
             puts ""
@@ -41,7 +41,7 @@ class LaHikes::CLI
             location_selector(num)
             puts "Select hike by number from list shown for more information:"
             num = gets.to_i
-            hike_selector(num)
+            hike_selector(num) if check_input(num)
             return_to_menu?
          elsif input == '3'
             puts ""
@@ -49,17 +49,19 @@ class LaHikes::CLI
             puts ""
             puts "Select difficulty level from the menu:"
             num = gets.to_i
-            difficulty_selector(num)
+            difficulty_selector(num) if check_input(num)
             return_to_menu?
-         elsif input == '4'  
+         elsif input == '4' 
+            puts ""
+            puts "Hike of the day:" 
             random_hike
-         elsif input = (/^[0A-Za-z5-9].*/i)
+         elsif input == 'exit'
+            exit
+         elsif input == (/^[0A-Za-z5-9].*/i)
             puts ""
             puts "Enter valid input"
             puts ""
             menu
-         elsif input == 'exit'
-            exit
         end
     end
 
@@ -102,7 +104,7 @@ class LaHikes::CLI
 
         hikes.collect.each.with_index(1) do |hike, index| 
             if hike.location == selected
-                puts "#{index}. #{hike.name.gsub(/\#[0-9a-z]*/i, "")}" 
+                puts "#{index}. #{hike.name.gsub(/\#[0-9a-z]*/i, "")} - #{hike.location}" 
             end
         end
         puts ""
@@ -158,6 +160,10 @@ class LaHikes::CLI
         length = LaHikes::Hike.all.drop(2).length
         select_hike(rand(length))
         
+    end
+
+    def check_input(num)
+        puts "invalid input" if num = (/^\d+[a-z]\W.*/i)
     end
     
     def return_to_menu?
