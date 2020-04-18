@@ -26,7 +26,9 @@ Gem::Specification.new do |spec|
   spec.bindir        = "exe"
   spec.executables   = spec.files.grep(%r{^exe/}) { |f| File.basename(f) }
   spec.require_paths = ["lib"]
-  spec.add_development_dependency "cucumber"
-  spec.add_development_dependency "aruba"
-  spec.add_development_dependency "rspec", "~> 3.2"
+
+  s.add_development_dependency "bundler", "~> 1.10"
+  s.add_development_dependency "rake", "~> 10.0"
+  s.add_development_dependency "rspec", ">= 0"
+  s.add_development_dependency "nokogiri", ">= 0"
 end
