@@ -4,6 +4,7 @@ Welcome to your new gem! In this directory, you'll find the files you need to be
 
 
 ## Installation
+Must be run in root directory of file.
 
 Enter in the terminal:
 
