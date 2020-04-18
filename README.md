@@ -7,7 +7,7 @@ Welcome to your new gem! In this directory, you'll find the files you need to be
 
 Enter in the terminal:
 
-    $ bundle install
+    $ gem install la_hikes
 
 Enter:
 
