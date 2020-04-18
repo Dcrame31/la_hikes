@@ -1,7 +1,5 @@
 require 'nokogiri'
 require 'open-uri'
-require 'pry'
-
 
 require_relative './la_hikes/version'
 require_relative './la_hikes/cli'
