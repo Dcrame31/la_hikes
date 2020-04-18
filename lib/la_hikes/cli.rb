@@ -13,59 +13,59 @@ class LaHikes::CLI
 
     def menu
 
-            puts ""
-            puts "List hikes by name, enter '1'"
-            puts "List hikes by location, enter '2'"
-            puts "List hikes by difficulty, enter '3'"
-            puts "Be brave and do a random hike, enter '4"
-            puts ""
-            puts "Please make a selection:"
+        puts ""
+        puts "List hikes by name, enter '1'"
+        puts "List hikes by location, enter '2'"
+        puts "List hikes by difficulty, enter '3'"
+        puts "Be brave and do a random hike, enter '4"
+        puts ""
+        puts "Please make a selection:"
             
         
-         input = gets.strip
+        input = gets.strip
        
-         if input == '1'
-            puts ""
-            list_hikes
-            puts ""
-            puts "Select a hike from menu:"
-            num = gets.to_i
-            hike_selector(num) 
-            return_to_menu?
-         elsif input == '2'
-            puts ""
-            list_location
-            puts ""
-            puts "Select a location from the menu:"
-            num = gets.to_i
-            location_selector(num)
-            puts "Select hike by number from list shown for more information:"
-            num = gets.to_i
-            hike_selector(num) 
-            return_to_menu?
-         elsif input == '3'
-            puts ""
-            list_difficulty
-            puts ""
-            puts "Select difficulty level from the menu:"
-            num = gets.to_i
-            difficulty_selector(num)
-            puts "Select hike by number from list shown for more information:"
-            num = gets.to_i
-            hike_selector(num) 
-            return_to_menu?
-         elsif input == '4' 
-            puts ""
-            puts "Hike of the day:" 
-            random_hike
-         elsif input == 'exit'
-            exit
-         elsif input == (/^[0A-Za-z5-9].*/i)
-            puts ""
-            puts "Enter valid input"
-            puts ""
-            menu
-        end
+        if input == '1'
+           puts ""
+           list_hikes
+           puts ""
+           puts "Select a hike from menu:"
+           num = gets.to_i
+           hike_selector(num) 
+           return_to_menu?
+        elsif input == '2'
+           puts ""
+           list_location
+           puts ""
+           puts "Select a location from the menu:"
+           num = gets.to_i
+           location_selector(num)
+           puts "Select hike by number from list shown for more information:"
+           num = gets.to_i
+           hike_selector(num) 
+           return_to_menu?
+        elsif input == '3'
+           puts ""
+           list_difficulty
+           puts ""
+           puts "Select difficulty level from the menu:"
+           num = gets.to_i
+           difficulty_selector(num)
+           puts "Select hike by number from list shown for more information:"
+           num = gets.to_i
+           hike_selector(num) 
+           return_to_menu?
+        elsif input == '4' 
+           puts ""
+           puts "Hike of the day:" 
+           random_hike
+        elsif input == 'exit'
+           exit
+        elsif input == (/^[0A-Za-z5-9].*/i)
+           puts ""
+           puts "Enter valid input"
+           puts ""
+           menu
+       end
     end
 
     def list_hikes
