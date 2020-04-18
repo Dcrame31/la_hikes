@@ -30,7 +30,7 @@ class LaHikes::CLI
             puts ""
             puts "Select a hike from menu:"
             num = gets.to_i
-            hike_selector(num) if check_input(num)
+            hike_selector(num) 
             return_to_menu?
          elsif input == '2'
             puts ""
@@ -41,7 +41,7 @@ class LaHikes::CLI
             location_selector(num)
             puts "Select hike by number from list shown for more information:"
             num = gets.to_i
-            hike_selector(num) if check_input(num)
+            hike_selector(num) 
             return_to_menu?
          elsif input == '3'
             puts ""
@@ -49,7 +49,10 @@ class LaHikes::CLI
             puts ""
             puts "Select difficulty level from the menu:"
             num = gets.to_i
-            difficulty_selector(num) if check_input(num)
+            difficulty_selector(num)
+            puts "Select hike by number from list shown for more information:"
+            num = gets.to_i
+            hike_selector(num) 
             return_to_menu?
          elsif input == '4' 
             puts ""
@@ -117,7 +120,7 @@ class LaHikes::CLI
 
         hikes.collect.each.with_index(1) do |hike, index| 
             if hike.difficulty == selected
-                puts "#{index}. #{hike.name.gsub(/\#[0-9a-z]*/i, "")}" 
+                puts "#{index}. #{hike.name.gsub(/\#[0-9a-z]*/i, "")} - #{hike.location}" 
             end
         end
         puts ""
@@ -159,13 +162,8 @@ class LaHikes::CLI
     def random_hike
         length = LaHikes::Hike.all.drop(2).length
         select_hike(rand(length))
-        
     end
 
-    def check_input(num)
-        puts "invalid input" if num = (/^\d+[a-z]\W.*/i)
-    end
-    
     def return_to_menu?
         puts "Would you like to return to the menu? y/n"
         answer = gets.strip
