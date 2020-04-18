@@ -22,7 +22,7 @@ class LaHikes::CLI
             puts "Please make a selection:"
             
         
-         input = gets.strip
+         input = gets.chomp
        
          if input == '1'
             puts ""
@@ -39,9 +39,9 @@ class LaHikes::CLI
             puts "Select a location from the menu:"
             num = gets.to_i
             location_selector(num)
-            puts "Select a hike:"
+            puts "Select hike by number from list shown for more information:"
             num = gets.to_i
-            select_hike(num)
+            hike_selector(num)
             return_to_menu?
          elsif input == '3'
             puts ""
@@ -53,10 +53,13 @@ class LaHikes::CLI
             return_to_menu?
          elsif input == '4'  
             random_hike
-         elsif input == 'exit' #.include?(/^[A-Z\W.*]/)
+         elsif input = (/^[0A-Za-z5-9].*/i)
+            puts ""
+            puts "Enter valid input"
+            puts ""
+            menu
+         elsif input == 'exit'
             exit
-         elsif input.include?(/\W[a-z].*/i)
-            "Enter valid input"
         end
     end
 
