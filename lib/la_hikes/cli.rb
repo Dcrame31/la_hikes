@@ -83,10 +83,10 @@ class LaHikes::CLI
         end
     end
 
-    def select_hike(input)
+    def select_hike(num)
             puts ""
             hikes = LaHikes::Hike.all.drop(2).sort{|a, b| a.name <=> b.name}
-            selected = hikes[input-1]
+            selected = hikes[num-1]
             puts ""
             puts "#{selected.name.gsub(/\#[0-9a-z]*/i, "")}"
             puts "#{selected.location}"
