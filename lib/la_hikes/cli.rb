@@ -81,7 +81,7 @@ class LaHikes::CLI
     end
 
     def list_difficulty
-        LaHikes::Hike.all.drop(2).collect {|hike| hike.difficulty}.uniq.each.with_index(1) do |difficulty, index|
+        LaHikes::Hike.all.drop(2).collect {|hike| hike.difficulty}.uniq.sort.each.with_index(1) do |difficulty, index|
             puts "#{index}. #{difficulty}"
         end
     end
